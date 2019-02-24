@@ -1,0 +1,16 @@
+https://stackoverflow.com/questions/269496/inheritance-vs-aggregation
+
+To cut it short.
+We should use aggregation if part of the interface is not used or has to be changed
+to avoid an illogical situation. We only need to use inheritance,
+if we need almost all of the functionality without major changes.
+
+When in doubt, use Aggregation.
+
+!!!  при использовании аггрегации приходится практически каждый метод описывать как
+
+    Person person;
+
+    public void method1() {
+        person.method1();
+    }

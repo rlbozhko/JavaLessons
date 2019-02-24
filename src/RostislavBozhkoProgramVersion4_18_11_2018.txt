@@ -1,0 +1,64 @@
+RostislavBozhkoProgramVersion4_18_11_2018
+
+Желаемый Порядок  изучения
+
+Абстрактная фабрика ???
+
+??? Возможность отдельного занятия - "пробежаться по шаблонам" ???
++++Generics
+*** Лямбды, функциональные интерфейсы.
+
+*** Hibernate.
+*** Servlets.
+*** Spring MVC.
+*** Spring and JPA.
+*** Spring Data
+ ? Java 8,9, 10 ???
+
+
+*** Enums
+*** Git
+*** Внутренние классы
+*** JUnit
+*** Mockito
+*** Коллекции.
+*** Reflection API.
+*** BigDecimal.
+*** SQL.
+*** JDBS.
+*** Gradle.
+!!!+++ потом можно мультипоточность, желательно НЕ на примитивах, а на более сложных структурах Хранения данных... !!!
+
+
+------------------------
++ в темы контекст выполнения методов анонимных классов? лямбд? ссылок на функцию? сталкивался что внутри можно использовать только внешние статики или массивы из внешней области видимости... точно не уверен... еще както читал чтото про замыкания в лямбдах но тоже не совсем понял...
+---------------------------
+
+
+
+
+
+SQL LEVEL :
+!!! анализ и ускорение - оптимизация SQL запросов, путь выполнения т.е. план запроса , его а анализ и ускорение выполнения на сонове анализа плана запроса
+merge into nc_grants t
+using
+(
+select
+9147848931413775570    as OBJECT_ID /* Prev weeks */,
+9144836027413504302 as USER_ID,
+5 as GRANTS
+from dual
+) v
+on
+(
+t.OBJECT_ID = v.OBJECT_ID
+and t.USER_ID = v.USER_ID
+)
+when matched then update set GRANTS = v.GRANTS
+when not matched then insert (OBJECT_ID, USER_ID, GRANTS)
+values (v.OBJECT_ID, v.USER_ID, v.GRANTS);
+
+
+select * from dual d
+left join dual2 d2 on d.id = d2.id and ....
+where ....

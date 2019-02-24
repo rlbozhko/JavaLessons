@@ -1,0 +1,5 @@
+классная ссылка
+https://stackoverflow.com/questions/885937/what-is-the-difference-between-association-aggregation-and-composition
+
+Dependency is a form of association.
+https://stackoverflow.com/questions/1644273/what-is-the-difference-between-aggregation-composition-and-dependency?noredirect=1&lq=1

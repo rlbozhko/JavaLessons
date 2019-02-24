@@ -1,0 +1,33 @@
+стратегия определяет группу алгоритмов которые можно безболезненно менять друг друга в рантайме
+
+Define a family of algorithms,
+encapsulate each one, and make them
+interchangeable. Lets the algorithm vary
+independently from
+clients that use it.
+
+
+Внутри нашего класса есть поле типа некоего интерфейса,
+через сеттер мы во время выполнения динамически меняем это поле,
+тем самым динамически меняем поведение нашего класса
+(т.к в классе через делегацию вызывается метод этого поля)
+
+
+public class StrategyClient {
+    private Sortable sortable;
+
+    public StrategyClient(Sortable sortable) {
+        this.sortable = sortable;
+    }
+
+    public void setSortable(Sortable sortable) {
+        this.sortable = sortable;
+    }
+
+    public void execute(List<Integer> list) {
+
+        System.out.println();
+        sortable.sort(list);
+        System.out.println();
+    }
+}

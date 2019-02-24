@@ -1,0 +1,39 @@
+Декоратор(похоже на список , вызывают методы по цепочке как луковица)+ !!!
+Позволяет прикручивать дополнительную логику в рантайме путем сцепки новых элементов и вызова у них соотв методов!!!
+
+основная логика в print()
+
+class RealPrinter implements Printable {
+    private String text;
+    private Printable printable;
+
+    public RealPrinter(Printable printable,String text) {
+
+        this.printable = printable;
+        this.text = text;
+    }
+
+    @Override
+    public void print() {
+        System.out.print("our logic");
+        if(Objects.nonNull(printable)){
+            printable.print();
+        }
+    }
+}
+
+
+--------запуск
+Если декорируемый обьект предеается сразу в конструкторе + параметры,
+ то создание цепочки декораторов может выглядеть вот так :
+
+   RealPrinter hello = new RealPrinter(new RealPrinter(new RealPrinter(null, "<"), "Hello"), ">");
+
+        hello.print();
+// результат >Hello<
+
+
+// цепочку обычно строят из РАЗНЫХ классов реализующих Printable
+
+      Printable  hello = new LeftBracketPrinter (new RealPrinter(new RightBracketPrinter(null), "Hello") );
+ важен порядок и кого куда )

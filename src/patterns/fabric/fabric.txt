@@ -1,0 +1,40 @@
+В отличие от Билдера, Фабрика может возвращать разные типы обьектов,
+хотя в 99% эти обьекты и связанны полиморфизмом, т.е. либо находятся в иерархии наследования,
+либо реализуют интерфейс ( иначе  возвращать object  и потом приводить его = бэд дизайн)
+
+Суть - в зависимости от параметров в методе-криэйторе, возвращаем разные типы значений
+
+class CarFabric implements CarCreator {
+
+    @Override
+    public SomeCar getCar(String model) {
+        //!!!
+        switch (model) {
+            case "BMW":
+                return new Bmw("x5");
+            case "Mercedes":
+                return new Mercedes("vito");
+            default:
+                return null;
+
+        }
+    }
+}
+
+Еще один вариант реализации фабрики
+//есть две ветки , ветка реализаторов Creator,
+// и ветка возвращаемых обьектов Product
+// конкретная реализация Creator возвращает инстанс соответствующей конкретную реализацию Product
+По сути в зависимости от параметра мы создаем инстанс нужного нам типа Creatora   и у него просто
+вызываем общий для иерархии типов метод, который создает нужный нам продукт
+
+  int rnd = 5;
+
+        Creator creator = null ;
+        switch (rnd) {
+            case 5: creator = new ConcreteCreatorA();
+                break;
+            case 9: creator = new ConcreteCreatorB();
+                break;
+        }
+        Product product1 = creator.createProduct();

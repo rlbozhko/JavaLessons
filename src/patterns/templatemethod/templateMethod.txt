@@ -1,0 +1,47 @@
+темплейт метод
+! обрати внимание, что сам запускаемый темплейт метод имеет модификатор final, чтоб его не могли поменять
+
+(в родителе есть метод который (задает шаблон0 т.е. вызывает несколько оверрайдженых в потомках методов
++ возможно запускает ряд "приватных/или файнал" методов из родителя которые нельзя менять в потомках)
+
+- тем самым темплейт метод влияет на то, как потомки будут расширять его методы
+   (частично ограничивает изменения)
+
+
+Пример :
+вот сам метод - определяет порядок выполнения методов
+
++ возможно запускает ряд "приватных/или файнал" методов из родителя которые нельзя менять в потомках
+
+    public final void buildHouse() {
+        buildFoundation();
+        buildWalls();
+        buildWindows();
+        buildPillars();
+    }
+
+ Пример потомков:
+ class GlassHouse extends HouseTemplate {
+
+     @Override
+     public void buildWalls() {
+         System.out.println("Install glass walls");
+     }
+
+     @Override
+     public void buildPillars() {
+         System.out.println("Install glass pillars");
+     }
+ }
+
+ class WoodHouse extends HouseTemplate {
+     @Override
+     public void buildWalls() {
+         System.out.println("Install wood walls");
+     }
+
+     @Override
+     public void buildPillars() {
+         System.out.println("Install wood pillars");
+     }
+ }
